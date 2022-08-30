@@ -1,13 +1,17 @@
-import styles from './todos.module.css';
+import './todos.module.css';
+import { Todo } from '@nx-tutorial-react/data';
 
-/* eslint-disable-next-line */
-export interface TodosProps {}
+export interface TodosProps {
+  todos: Todo[];
+}
 
 export function Todos(props: TodosProps) {
   return (
-    <div className={styles['container']}>
-      <h1>Welcome to Todos!</h1>
-    </div>
+    <ul>
+      {props.todos.map((t) => (
+        <li className={'todo'}>{t.title}</li>
+      ))}
+    </ul>
   );
 }
 
